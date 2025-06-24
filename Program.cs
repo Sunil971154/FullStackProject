@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using Revision_Project.Data;
+
 namespace Revision_Project
 {
     public class Program
@@ -6,6 +9,11 @@ namespace Revision_Project
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                            options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));// connection string app setting me bana lo 
+
+
 
             // Add services to the container.
 
