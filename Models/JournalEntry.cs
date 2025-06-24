@@ -8,7 +8,7 @@ namespace Revision_Project.Models
 {
     public class JournalEntry
     {
-        public long Id { get; set; }      // case matter nahi karta letter chota bada ho dakta hai       
+        public int Id { get; set; }      // case matter nahi karta letter chota bada ho dakta hai       
         public string Title { get; set; }
         public string Content { get; set; }
 

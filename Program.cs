@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Revision_Project.Data;
+using Revision_Project.Interface;
+using Revision_Project.ServiceIMPL;
 
 namespace Revision_Project
 {
@@ -13,7 +15,7 @@ namespace Revision_Project
             builder.Services.AddDbContext<AppDbContext>(options =>
                             options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));// connection string app setting me bana lo 
 
-
+            builder.Services.AddScoped<IJERepository, JournalEntryRepository>();
 
             // Add services to the container.
 
@@ -23,7 +25,7 @@ namespace Revision_Project
 
             var app = builder.Build();
 
-
+            
 
             Console.WriteLine(" Program Started Now ");
             // Configure the HTTP request pipeline.
