@@ -6,7 +6,7 @@ using Microsoft.VisualBasic;
 
 namespace Revision_Project.Models
 {
-    public class JournalEntry
+    public class JournalEntry2
     {
         public int Id { get; set; }      // case matter nahi karta letter chota bada ho dakta hai       
         public string Title { get; set; }
@@ -14,15 +14,6 @@ namespace Revision_Project.Models
 
         public DateOnly LocalDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);  // Date and time of the entry
         public TimeOnly LocalTime { get; set; } = TimeOnly.FromDateTime(DateTime.Now);
-
-        public int UserId { get; set; } // Foreign Key
-
-        [ForeignKey("UserId")]
-        [ValidateNever]
-        [JsonIgnore]
-        public User User { get; set; } // Navigation property
-
-
 
     }
 }

@@ -39,7 +39,7 @@ namespace Revision_Project.Controllers
          * _context Aapke C# code aur actual SQL database ke beech communication karwana." e object hai AppDbContext ka jo inharit hai  DbContext class se   
          */
         [HttpGet]
-        public async Task<ActionResult<List<JournalEntry>>> GetAll()
+        public async Task<ActionResult<List<JournalEntry2>>> GetAll()
         {
             
             return await _context.JournalEntries.ToListAsync();
@@ -55,7 +55,7 @@ namespace Revision_Project.Controllers
          */
 
         [HttpPost]
-        public async Task<ActionResult> CreateEntry([FromBody] JournalEntry journalEntry)
+        public async Task<ActionResult> CreateEntry([FromBody] JournalEntry2 journalEntry)
         {
             if (journalEntry == null)
                 {
@@ -74,7 +74,7 @@ namespace Revision_Project.Controllers
             await pauses the current method until a task finishes, letting the program keep running smoothly without freezing.
             FindAsync(id)--> database से उस specific entry को ढूंढता है जिसकी id दी गई है।
          */
-        public async Task<ActionResult<JournalEntry>> GetById(long id)
+        public async Task<ActionResult<JournalEntry2>> GetById(long id)
         {
             var entry = await _context.JournalEntries.FindAsync(id);
             if (entry == null) return NotFound();
@@ -88,7 +88,7 @@ namespace Revision_Project.Controllers
          *SaveChangesAsync()-> यह method database में किए गए changes को सुरक्षित रूप से save करता है और इस काम के खत्म होने तक asynchronously इंतजार करता है।
          */
         [HttpPut("id/{id}")]
-        public async Task<ActionResult> Update(long id, [FromBody] JournalEntry entry)
+        public async Task<ActionResult> Update(long id, [FromBody] JournalEntry2 entry)
         {
             var existing = await _context.JournalEntries.FindAsync(id); 
             if (existing == null) return NotFound();

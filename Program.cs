@@ -15,7 +15,12 @@ namespace Revision_Project
             builder.Services.AddDbContext<AppDbContext>(options =>
                             options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));// connection string app setting me bana lo 
 
-            builder.Services.AddScoped<IJERepository, JournalEntryRepository>();
+
+            // Register the UserServiceImpl as IUserRepository
+            builder.Services.AddScoped<IUserRepository, UserServiceImpl>();
+            builder.Services.AddScoped<IJERepository, JournalEntryServiceImpl>();
+            
+
 
             // Add services to the container.
 

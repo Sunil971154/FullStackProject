@@ -5,7 +5,6 @@ bin/
 obj/
 Debug/
 Release/
-*.gitignore
 appsettings.Development.json
 Revision-Project.csproj.user
 

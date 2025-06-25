@@ -18,7 +18,7 @@ namespace Revision_Project.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<JournalEntry>>> GetAll()
+        public async Task<ActionResult<List<JournalEntry2>>> GetAll()
         {
             var entries = await _repository.GetAll(); // 🔁 Repository se saare journal entries laao
             if (entries == null || !entries.Any())
@@ -30,7 +30,7 @@ namespace Revision_Project.Controllers
         }
 
         [HttpGet("id/{id}")]
-        public async Task<ActionResult<JournalEntry>> GetById(int id)
+        public async Task<ActionResult<JournalEntry2>> GetById(int id)
         {
             var entry = await _repository.GetById(id); // 🔍 ID ke basis pe ek entry fetch karo
             if (entry == null) return NotFound(); // ❌ Agar nahi mili to 404 bhejo
@@ -38,7 +38,7 @@ namespace Revision_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<JournalEntry>> Create([FromBody] JournalEntry entry)
+        public async Task<ActionResult<JournalEntry2>> Create([FromBody] JournalEntry2 entry)
         {
             if (entry == null) // ❗ Client ne null bheja to bad request bhejo
                 return BadRequest("Invalid data.");
@@ -48,7 +48,7 @@ namespace Revision_Project.Controllers
         }
 
         [HttpPut("id/{id}")]
-        public async Task<ActionResult<JournalEntry>> Update(int id, [FromBody] JournalEntry entry)
+        public async Task<ActionResult<JournalEntry2>> Update(int id, [FromBody] JournalEntry2 entry)
         {
             var updated = await _repository.UpdateById(id, entry); // 🔁 Existing entry update karo
             if (updated == null) return NotFound(); // ❌ Entry nahi mili to 404 return karo
