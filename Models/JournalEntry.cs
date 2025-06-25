@@ -23,6 +23,5 @@ namespace Revision_Project.Models
         public User User { get; set; } // Navigation property
 
 
-
     }
 }

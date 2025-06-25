@@ -15,7 +15,7 @@ namespace Revision_Project.Models
         public string Password { get; set; }
 
         // Navigation property       
-        public List<JournalEntry2> JournalEntries { get; set; } = new();   // journal entry k referance hold karegi 
+        public List<JournalEntry> JournalEntries { get; set; } = new();   // journal entry k referance hold karegi 
 
     }
 }
